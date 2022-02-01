@@ -1,15 +1,18 @@
 #!/bin/bash
-#Programa para practicar iteración for
+#Programa para practicar iteraciónes anidadas
 
 #Autor: Nicolás Rodríguez - @chino.rodgz
 
-number=1
 
 
-while [ $number -ne 10 ]
+echo " Loops anidados "
+
+for file in $(ls)
 do
-    echo "Iteración: $number"
-    number=$(( number+1 ))
+    for name in {1..4}
+    do
+        echo "Nombre archivo: $file _ $name"
+    done
 done
 
 
