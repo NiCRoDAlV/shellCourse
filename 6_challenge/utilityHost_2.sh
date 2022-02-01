@@ -1,8 +1,14 @@
-#!/bin/bash
+# !/bin/bash
+#RETO 6: Modificar programa utilityHost. sh para empaquetar los logs generados utilizando algún formato de compresión, colocarle una clave y pasarlo a otra máquina a través de SSH, cuando se seleccione la opción 7. Backup de Información
 
-#Menú de opciones 
 
-#Autor: Nicolás Rodríguez  -  @chino.rodgz
+#Autor: Nicolás Rodríguez - @chino.rodgz
+
+
+
+
+
+echo "RETO 5: Login"
 
 
 option=0
@@ -11,7 +17,7 @@ option=0
 
 while :
 do
-    clear 
+    clear
     #Desplegar menú de opciones
     echo "-------------------------------------------"
     echo "               MENÚ PRINCIPAL              "
@@ -25,19 +31,17 @@ do
     echo "(7) Backup información"
     echo "(8) Salir"
 
-
-
     #Obtenemos la opción del usuario
     read -p "Ingrese una opción [1-8]:  " option
 
     #validar la opción ingresada
 
-    case $option in 
+    case $option in
         1)
             echo -e "\nProcesos actuales"
             sleep 3
         ;;
-        
+
         2)
             echo -e "\nMemoria disponible"
             sleep 3
@@ -61,8 +65,16 @@ do
             sleep 3
         ;;
         7)
-            echo -e "\nBackup información"
-            sleep 3
+
+            read -e -p "Usuario: " user
+            read -s -p "Contraseña: " password
+            date=`date +"%Y-%m-%d"`
+            hour=`date +"%T"`
+            echo "Usuario: $user   ;    Fecha: $date   ;  Hour: $hour" >> log.txt 
+            read -p "Ingresar el host: " host
+            read -p "Ingresar el usuario: " user
+            echo -e"\nSe procede a empaquetar la carpeta shellCourse y transferirla"
+            rsync -avz $(pwd) $user@$host:\Users\nicol
         ;;
         8)
             clear
@@ -71,6 +83,21 @@ do
             exit 0
         ;;
    esac
+
 done
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

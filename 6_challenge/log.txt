@@ -1,0 +1,3 @@
+Usuario: Nicolas   ;    Fecha: 2022-02-01   ;  Hour: 10:39:22
+Usuario: Damian   ;    Fecha: 2022-02-01   ;  Hour: 10:39:36
+Usuario: Florencia   ;    Fecha: 2022-02-01   ;  Hour: 10:39:53
